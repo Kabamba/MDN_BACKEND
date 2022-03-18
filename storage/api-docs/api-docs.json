@@ -1,0 +1,2160 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API de base en laravel",
+        "description": "MDN",
+        "version": "0.1"
+    },
+    "servers": [
+        {
+            "url": "http://mdn-rdv.com/api"
+        }
+    ],
+    "paths": {
+        "/admin/admins/list": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__ADMINISTRATEURS"
+                ],
+                "summary": "Liste des administrateurs",
+                "operationId": "742e7dae51d7e89507fb8aa4a2a5541f",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/admins/store": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__ADMINISTRATEURS"
+                ],
+                "summary": "Enregistre un administrateur",
+                "description": "",
+                "operationId": "23c218234ac81ba86f01eeb316c6a13a",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Mulamba"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "bgi@gmail.com"
+                                    },
+                                    "telephone": {
+                                        "type": "string",
+                                        "example": "0852277379"
+                                    },
+                                    "role": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "12345678"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string",
+                                        "example": "12345678"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/admins/show/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__ADMINISTRATEURS"
+                ],
+                "summary": "Renvoie les informations d'un administrateur par son ID",
+                "operationId": "f2177002a53a5274642106a32a289fcf",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/admins/update": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__ADMINISTRATEURS"
+                ],
+                "summary": "Editer les informations d'un administrateur",
+                "operationId": "f23917d287b53b769e2ed799bcb1fc63",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 10
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Mulamba"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "bgi@gmail.com"
+                                    },
+                                    "telephone": {
+                                        "type": "string",
+                                        "example": "0852277379"
+                                    },
+                                    "role": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "12345678"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/admins/activate/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__ADMINISTRATEURS"
+                ],
+                "summary": "Active ou désactive l'état d'un administrateur par son ID",
+                "operationId": "ca17de4ed94ef4df58c48750e7d5afea",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/admins/delete": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__ADMINISTRATEURS"
+                ],
+                "summary": "Supprimer un administrateur",
+                "operationId": "5cc284c12c57d8844aef11393215dae8",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 10
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/admins/theme/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__ADMINISTRATEURS"
+                ],
+                "summary": "Change le thème du design d'un administrateur par son ID",
+                "operationId": "77418f766cb0fd05442ce1d2cf9d40d4",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/appoints/one/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__RDV"
+                ],
+                "summary": "Affiche les détails d'un rendez-vous par son ID",
+                "operationId": "02f23f7a4ef63502ea5dedf0264d5eea",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/appoints/listoday": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__RDV"
+                ],
+                "summary": "Liste les rendez-vous du jour",
+                "operationId": "571124386b1e0d1d424df004196ee72f",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/appoints/listfuture": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__RDV"
+                ],
+                "summary": "Liste les rendez-vous à venir",
+                "operationId": "fa3130960c7a0c8fe472a0ed7830b249",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/appoints/listlast": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__RDV"
+                ],
+                "summary": "Liste les rendez-vous passés",
+                "operationId": "37b8e2c8733098f34939d739f142908f",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/appoints/listoday/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__RDV"
+                ],
+                "summary": "Liste les rendez-vous du jour d'un docteur",
+                "operationId": "7e5f577b2681c303991879db6827b1e8",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/appoints/listfuture/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__RDV"
+                ],
+                "summary": "Liste les rendez-vous à venir d'un docteur",
+                "operationId": "3c8100f18023a451d974b770bee9647d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/appoints/listlast/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__RDV"
+                ],
+                "summary": "Liste les rendez-vous passés d'un docteur",
+                "operationId": "d0f950dfdfa7fad8c6d992393fd418c2",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/appoints/store": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__RDV"
+                ],
+                "summary": "Enregistre un rendez-vous",
+                "description": "",
+                "operationId": "5e0125a68e390c8ab917190573fa5168",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "motif": {
+                                        "type": "string",
+                                        "example": "Rencontre pour consulation"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Je ne me sens pas bien et je veux rencontrer mon docteur"
+                                    },
+                                    "recep_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "doctor_id": {
+                                        "type": "integer",
+                                        "example": 2
+                                    },
+                                    "patient_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "date_heure_appoint": {
+                                        "type": "dateTime"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/appoints/dispo": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__RDV"
+                ],
+                "summary": "Recherche l'horaire d'un docteur pour un jour",
+                "description": "",
+                "operationId": "212f1c59626d704c3a755207b9dd9206",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "day_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "doctor_id": {
+                                        "type": "integer",
+                                        "example": 2
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/appoints/saveschdule": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__RDV"
+                ],
+                "summary": "Enregistrer l'horaire d'un docteur pour un jour précis",
+                "description": "",
+                "operationId": "0fdbcc9de104a9c2720c419487cda9d9",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "day_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "doctor_id": {
+                                        "type": "integer",
+                                        "example": 2
+                                    },
+                                    "heure_deb": {
+                                        "type": "string",
+                                        "example": "09:10"
+                                    },
+                                    "heure_fin": {
+                                        "type": "string",
+                                        "example": "16:37"
+                                    },
+                                    "max_pat": {
+                                        "type": "integer",
+                                        "example": 10
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/appoints/listschedule/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__RDV"
+                ],
+                "summary": "Affiche l'horaire d'un docteur par son ID",
+                "operationId": "dcbfc59f6387108647e4e0752feef871",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/appoints/approuver": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__RDV"
+                ],
+                "summary": "Approuve un RDV",
+                "description": "",
+                "operationId": "9634ca7042ba3331746b36466def9ed9",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "observations": {
+                                        "type": "string",
+                                        "example": "OK"
+                                    },
+                                    "piece": {
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/appoints/grille/all": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__RDV"
+                ],
+                "summary": "Liste les docteurs et leurs rendez-vous sous forme de grille avec un total",
+                "operationId": "04221869bc3ae695072f9528b60bc101",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/appoints/grille/date": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__RDV"
+                ],
+                "summary": "Liste les docteurs et leurs rendez-vous sous forme de grille avec un total à partir d'une date début et fin",
+                "description": "",
+                "operationId": "8b42e9538adde96b64b159f893057cfa",
+                "requestBody": {
+                    "required": false,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "date_deb": {
+                                        "type": "date",
+                                        "example": "2022-02-05"
+                                    },
+                                    "date_fin": {
+                                        "type": "date",
+                                        "example": "2022-02-18"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "tags": [
+                    "AUTHENTIFICATION"
+                ],
+                "summary": "Authentifie l'utilisateur avant de se connecter",
+                "description": "",
+                "operationId": "2dd578ff7aba2721293dac66833b27d1",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "example": "bgi@gmail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "12345678"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/logout": {
+            "post": {
+                "tags": [
+                    "AUTHENTIFICATION"
+                ],
+                "summary": "Deconnexion de l'utilisateur",
+                "description": "",
+                "operationId": "68a6108af04af5e3bc1ea68a6c6f1299",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "token": {
+                                        "schema": "Bearer",
+                                        "type": "string",
+                                        "example": "89er4186gjazuihhiZIOJreioiouEIOJIOZERF814879AE8FEA"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/register": {
+            "post": {
+                "tags": [
+                    "AUTHENTIFICATION"
+                ],
+                "summary": "Inscription de l'utilisateur",
+                "description": "",
+                "operationId": "0903f2e0df1a8857bee538fc055417f0",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Mulamba"
+                                    },
+                                    "prrenom": {
+                                        "type": "string",
+                                        "example": "Enock"
+                                    },
+                                    "country": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "bgi@gmail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "12345678"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string",
+                                        "example": "12345678"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/forgot": {
+            "post": {
+                "tags": [
+                    "AUTHENTIFICATION"
+                ],
+                "summary": "Demande de rénitialisation de mot de passe par mail",
+                "description": "",
+                "operationId": "03aca08208571c2a43bcdeebb40304ae",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "example": "bgi@gmail.com"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/reset": {
+            "post": {
+                "tags": [
+                    "AUTHENTIFICATION"
+                ],
+                "summary": "Renitialisation du mot de passe",
+                "description": "",
+                "operationId": "8ae8881c540d1f799293343fde43c530",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "token": {
+                                        "type": "string",
+                                        "example": "ufghzruqgioqzruogrjcuuUIBYRCUR?61154600"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "12345678"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string",
+                                        "example": "12345678"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/profile": {
+            "post": {
+                "tags": [
+                    "AUTHENTIFICATION"
+                ],
+                "summary": "Modification des informations du profile de l'utilisateur",
+                "description": "",
+                "operationId": "c9645f8c93e992e4df8b013e542bd367",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 18
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Enock"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "bgi@gmail.com"
+                                    },
+                                    "sexe": {
+                                        "type": "string",
+                                        "example": "M"
+                                    },
+                                    "adresse": {
+                                        "type": "string",
+                                        "example": "N°5 Bukasa Limete 1iere Rue"
+                                    },
+                                    "profile": {
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/identite": {
+            "post": {
+                "tags": [
+                    "AUTHENTIFICATION"
+                ],
+                "summary": "Chargement de la piéce d'identité de l'utilisateur",
+                "description": "",
+                "operationId": "c67945b64410b2980d9d6b9c6cf9e969",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 18
+                                    },
+                                    "identite": {
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/doctors/list": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__DOCTEUR"
+                ],
+                "summary": "Liste des docteurs",
+                "operationId": "0653d1ef58d71db6aa247682ca6d36ba",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/doctors/store": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__DOCTEUR"
+                ],
+                "summary": "Enregistre un docteur",
+                "description": "",
+                "operationId": "c489f6546fb37a1eb8a7f83161fdc3e1",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Mulamba"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "bgi@gmail.com"
+                                    },
+                                    "telephone": {
+                                        "type": "string",
+                                        "example": "0852277379"
+                                    },
+                                    "service": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "role": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "12345678"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string",
+                                        "example": "12345678"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/doctors/show/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__DOCTEUR"
+                ],
+                "summary": "Renvoie les informations d'un docteur par son ID",
+                "operationId": "0a72b8689bef23b48b06f656ffda4d9e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/doctors/update": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__DOCTEUR"
+                ],
+                "summary": "Editer les informations d'un docteur",
+                "operationId": "b43c776ea52d9f4f14d2a2295b7addbf",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 10
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Mulamba"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "bgi@gmail.com"
+                                    },
+                                    "telephone": {
+                                        "type": "string",
+                                        "example": "0852277379"
+                                    },
+                                    "service": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "role": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "12345678"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/doctors/activate/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__DOCTEUR"
+                ],
+                "summary": "Active ou désactive l'état d'un docteur par son ID",
+                "operationId": "861d65e13cd699a3578ad1770350fb13",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/doctors/delete": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__DOCTEUR"
+                ],
+                "summary": "Supprimer un docteur",
+                "operationId": "020327a66a0e78c572b1893255cb5827",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 10
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/motifs/list": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__MOTIFS"
+                ],
+                "summary": "Liste des motifs",
+                "operationId": "01ba287ad134de0381b6ba96070b0c16",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/motifs/store": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__MOTIFS"
+                ],
+                "summary": "Enregistre un motif",
+                "description": "",
+                "operationId": "f69fcfd8218eac4fd6f885ca69744375",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "libelle": {
+                                        "type": "string",
+                                        "example": "Consultation labo"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/motifs/show/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__MOTIFS"
+                ],
+                "summary": "Renvoie les informations d'une consultation par son ID",
+                "operationId": "60aa0f2e15287921f751c879a09315f7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/motifs/update": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__MOTIFS"
+                ],
+                "summary": "Editer les informations d'un motif",
+                "operationId": "e5211bf6bbdb761a2639755defcfb3a8",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 10
+                                    },
+                                    "libelle": {
+                                        "type": "string",
+                                        "example": "Consultation pédiatrie"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/motifs/delete": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__MOTIFS"
+                ],
+                "summary": "Supprimer un motif",
+                "operationId": "8f66c01f393a094b1a2b98e78a496686",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 10
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/patients/search": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__PATIENT"
+                ],
+                "summary": "Recherche un patient",
+                "description": "",
+                "operationId": "6cfeb8a81a2b74f4fcf6df8e757a435a",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "search": {
+                                        "type": "string",
+                                        "example": "Lucas"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/permissions/list": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__PERMISSIONS"
+                ],
+                "summary": "Liste des permissions",
+                "operationId": "4b085abf14643e50b73783924ae2eed8",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/recepts/list": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__RECEPTIONISTE"
+                ],
+                "summary": "Liste des réceptionnistes",
+                "operationId": "5048b79b3a68cc9c7e87a2a81a742474",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/recepts/store": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__RECEPTIONISTE"
+                ],
+                "summary": "Enregistre un réceptionniste",
+                "description": "",
+                "operationId": "c97eeed36daa420f50d7bcbfd41ef477",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Mulamba"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "bgi@gmail.com"
+                                    },
+                                    "telephone": {
+                                        "type": "string",
+                                        "example": "0852277379"
+                                    },
+                                    "role": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "12345678"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string",
+                                        "example": "12345678"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/recepts/show/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__RECEPTIONISTE"
+                ],
+                "summary": "Renvoie les informations d'un réceptionniste par son ID",
+                "operationId": "b606fea83dcb0cbf50ba9bacc95319b9",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/recepts/update": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__RECEPTIONISTE"
+                ],
+                "summary": "Editer les informations d'un réceptionniste",
+                "operationId": "b176c005c5fc77febb5d00b3d4f9c209",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 10
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Mulamba"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "bgi@gmail.com"
+                                    },
+                                    "telephone": {
+                                        "type": "string",
+                                        "example": "0852277379"
+                                    },
+                                    "role": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "12345678"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/recepts/activate/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__RECEPTIONISTE"
+                ],
+                "summary": "Active ou désactive l'état d'un réceptionniste par son ID",
+                "operationId": "f4527aaf32777ed5cbbd62463209f78a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/recepts/delete": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__RECEPTIONISTE"
+                ],
+                "summary": "Supprimer un receptionniste",
+                "operationId": "2f95df09600a32611b16ec24051bf4f9",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 10
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/roles/list": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__ROLES"
+                ],
+                "summary": "Liste des roles",
+                "operationId": "f4e5e6fb28832041bfbe0f3513300b66",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/roles/store": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__ROLES"
+                ],
+                "summary": "Enregistre un role",
+                "description": "",
+                "operationId": "c8bcc1b6a6123b3cf5a75393a7569792",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "libelle": {
+                                        "type": "string",
+                                        "example": "Administrateur"
+                                    },
+                                    "permissions": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/roles/show/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__ROLES"
+                ],
+                "summary": "Renvoie les informations d'un role par son ID",
+                "operationId": "c903a8df5dd3369cb71ee44935c8ad71",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/roles/update": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__ROLES"
+                ],
+                "summary": "Editer les informations d'un role",
+                "operationId": "6959d2d5fe7ec0e322f55ba347702f68",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 10
+                                    },
+                                    "libelle": {
+                                        "type": "string",
+                                        "example": "Infirmiére"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/roles/delete": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__ROLES"
+                ],
+                "summary": "Supprimer un role",
+                "operationId": "97c87e6aeb4078cdc27f9c85e03e82c8",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 10
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/services/list": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__SERVICES"
+                ],
+                "summary": "Liste des services",
+                "operationId": "c0fe5dd7203571d36eccc1096c28aaf2",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/services/store": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__SERVICES"
+                ],
+                "summary": "Enregistre un service",
+                "description": "",
+                "operationId": "43583476b18c05cf800127c95ba828c0",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "libelle": {
+                                        "type": "string",
+                                        "example": "Pédiatrie"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/services/show/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__SERVICES"
+                ],
+                "summary": "Renvoie les informations d'un service par son ID",
+                "operationId": "a4699fd10ce6f245953591a9eae6f295",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/services/update": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__SERVICES"
+                ],
+                "summary": "Editer les informations d'un service",
+                "operationId": "89971f5db4f37520929d12d0b33fa5db",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 10
+                                    },
+                                    "libelle": {
+                                        "type": "string",
+                                        "example": "Radiologie"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/services/delete": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__SERVICES"
+                ],
+                "summary": "Supprimer un service",
+                "operationId": "2c3b1351530fd050de0a82f74c29a2f6",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 10
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/stats/totrdv": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__STATISTIQUES"
+                ],
+                "summary": "Total des rendez-vous du jour",
+                "operationId": "ab74dbeaf9194e64af6be0a16da267fb",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/stats/totrdvappr": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__STATISTIQUES"
+                ],
+                "summary": "Total des rendez-vous du jour approuvés",
+                "operationId": "6d67771ebc57e394b78e2a868adf20d5",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/stats/totrdvatt": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__STATISTIQUES"
+                ],
+                "summary": "Total des rendez-vous du jour approuvés",
+                "operationId": "5fe11a82266b908e6bc5b20b1865f169",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/stats/totrdv/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__STATISTIQUES"
+                ],
+                "summary": "Total des rendez-vous du jour d'un docteur",
+                "operationId": "1116ed771cf83c1bffe7a4995059d33f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/stats/totrdvapprov/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__STATISTIQUES"
+                ],
+                "summary": "Total des rendez-vous du jour approuvés d'un docteur",
+                "operationId": "980ace1b64b1f7bbf0eba3326440b659",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/stats/totrdvattent/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__STATISTIQUES"
+                ],
+                "summary": "Total des rendez-vous du jour en attentes d'un docteur",
+                "operationId": "b2381c9faaef00a6ee258889cd14f1b8",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/mail/test": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__MAIL"
+                ],
+                "summary": "Envoie un mail",
+                "operationId": "0597efa7e20bc0b6b5acc00146a2b501",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/categories/list": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__CATEGORIES"
+                ],
+                "summary": "Liste des catégories",
+                "operationId": "0180affc8bb2bffe4e794dbfdc18089d",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/categories/store": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__CATEGORIES"
+                ],
+                "summary": "Enregistre une catégorie",
+                "description": "",
+                "operationId": "eeda6f2dc18f6218dda1379855937d50",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "libelle": {
+                                        "type": "string",
+                                        "example": "Privé"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/categories/show/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__CATEGORIES"
+                ],
+                "summary": "Renvoie les informations d'une catégorie par son ID",
+                "operationId": "8b2e9568461f920860e458217470fad7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/categories/update": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__CATEGORIES"
+                ],
+                "summary": "Editer les informations d'une catégorie",
+                "operationId": "021705a81a63ddae4706e794a0515548",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 10
+                                    },
+                                    "libelle": {
+                                        "type": "string",
+                                        "example": "Associé"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/categories/delete": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__CATEGORIES"
+                ],
+                "summary": "Supprimer une catégorie",
+                "operationId": "a16b615d8608ca8d7cd02230882d1bba",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 10
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/societies/list": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__SOCIETIES"
+                ],
+                "summary": "Liste des sociétés",
+                "operationId": "725dc89b916e6e233b3e5ec27ee1c642",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/societies/store": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__SOCIETIES"
+                ],
+                "summary": "Enregistre une société",
+                "description": "",
+                "operationId": "169a92719d4a68ecbf15285bf7601586",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "category_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "libelle": {
+                                        "type": "string",
+                                        "example": "Orange"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/societies/show/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__SOCIETIES"
+                ],
+                "summary": "Renvoie les informations d'une société par son ID",
+                "operationId": "fb27adff1ad221ebaedbcd1d9253140a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/societies/update": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__SOCIETIES"
+                ],
+                "summary": "Editer les informations d'une société",
+                "operationId": "426d1726589b176b19dd25248f4a03f4",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 10
+                                    },
+                                    "category_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "libelle": {
+                                        "type": "string",
+                                        "example": "Radiologie"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/societies/delete": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__SOCIETIES"
+                ],
+                "summary": "Supprimer une société",
+                "operationId": "5b05a67d4f364489e32a26ff3bcfe607",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 10
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearer": {
+                "type": "apiKey",
+                "bearerFormat": "JWT"
+            },
+            "0": []
+        }
+    }
+}
