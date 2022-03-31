@@ -77,6 +77,13 @@ Route::prefix('/admin')->group(function () {
     Route::post('motifs/delete', 'MotifController@delete');
 
     Route::post('patients/search', 'PatientController@search');
+    Route::post('patients/store', 'PatientController@store');
+    Route::post('patients/update', 'PatientController@update');
+    Route::get('patients/list', 'PatientController@index');
+    Route::get('patients/show/{id}', 'PatientController@show');
+    Route::post('patients/delete', 'PatientController@delete');
+
+    Route::get('pays/list', 'PatientController@pays');
 
     Route::get('mail/test', 'TestMail@envoyer');
 
@@ -90,6 +97,7 @@ Route::prefix('/admin')->group(function () {
     Route::post('categories/delete', 'categoryController@delete');
 
     Route::get('societies/list', 'societyController@index');
+    Route::get('societies/categorie/{id}', 'societyController@SocietePerCategorie');
     Route::get('societies/show/{id}', 'societyController@show');
     Route::post('societies/store', 'societyController@store');
     Route::post('societies/update', 'societyController@update');

@@ -28,6 +28,31 @@ class societyController extends Controller
     }
 
     /**
+     * @OA\Get(
+     *     path="/admin/societies/categorie/{id}",
+     *     tags={"ADMINISTRATION__PATIENT"},
+     *     summary="Renvoie les informations des societés d'une catégorie précise",
+     *      @OA\Parameter(
+     *          name = "id",
+     *          required = true,
+     *          in = "path",
+     *          example = 18,
+     *          @OA\Schema(type="integer")
+     *      ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="OK",
+     *     )
+     * )
+     */
+    public function SocietePerCategorie($id)
+    {
+        $societies = society::where('category_id',$id)->get();
+
+        return SocietyResource::collection($societies);
+    }
+
+    /**
      * @OA\Post(
      *     path="/admin/societies/store",
      *     tags={"ADMINISTRATION__SOCIETIES"},

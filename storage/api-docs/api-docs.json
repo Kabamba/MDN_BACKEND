@@ -684,211 +684,6 @@
                 }
             }
         },
-        "/register": {
-            "post": {
-                "tags": [
-                    "AUTHENTIFICATION"
-                ],
-                "summary": "Inscription de l'utilisateur",
-                "description": "",
-                "operationId": "0903f2e0df1a8857bee538fc055417f0",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "multipart/form-data": {
-                            "schema": {
-                                "properties": {
-                                    "name": {
-                                        "type": "string",
-                                        "example": "Mulamba"
-                                    },
-                                    "prrenom": {
-                                        "type": "string",
-                                        "example": "Enock"
-                                    },
-                                    "country": {
-                                        "type": "integer",
-                                        "example": 1
-                                    },
-                                    "email": {
-                                        "type": "string",
-                                        "example": "bgi@gmail.com"
-                                    },
-                                    "password": {
-                                        "type": "string",
-                                        "example": "12345678"
-                                    },
-                                    "password_confirmation": {
-                                        "type": "string",
-                                        "example": "12345678"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                }
-            }
-        },
-        "/forgot": {
-            "post": {
-                "tags": [
-                    "AUTHENTIFICATION"
-                ],
-                "summary": "Demande de rénitialisation de mot de passe par mail",
-                "description": "",
-                "operationId": "03aca08208571c2a43bcdeebb40304ae",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "multipart/form-data": {
-                            "schema": {
-                                "properties": {
-                                    "email": {
-                                        "type": "string",
-                                        "example": "bgi@gmail.com"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                }
-            }
-        },
-        "/reset": {
-            "post": {
-                "tags": [
-                    "AUTHENTIFICATION"
-                ],
-                "summary": "Renitialisation du mot de passe",
-                "description": "",
-                "operationId": "8ae8881c540d1f799293343fde43c530",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "multipart/form-data": {
-                            "schema": {
-                                "properties": {
-                                    "token": {
-                                        "type": "string",
-                                        "example": "ufghzruqgioqzruogrjcuuUIBYRCUR?61154600"
-                                    },
-                                    "password": {
-                                        "type": "string",
-                                        "example": "12345678"
-                                    },
-                                    "password_confirmation": {
-                                        "type": "string",
-                                        "example": "12345678"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                }
-            }
-        },
-        "/profile": {
-            "post": {
-                "tags": [
-                    "AUTHENTIFICATION"
-                ],
-                "summary": "Modification des informations du profile de l'utilisateur",
-                "description": "",
-                "operationId": "c9645f8c93e992e4df8b013e542bd367",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "multipart/form-data": {
-                            "schema": {
-                                "properties": {
-                                    "id": {
-                                        "type": "integer",
-                                        "example": 18
-                                    },
-                                    "name": {
-                                        "type": "string",
-                                        "example": "Enock"
-                                    },
-                                    "email": {
-                                        "type": "string",
-                                        "example": "bgi@gmail.com"
-                                    },
-                                    "sexe": {
-                                        "type": "string",
-                                        "example": "M"
-                                    },
-                                    "adresse": {
-                                        "type": "string",
-                                        "example": "N°5 Bukasa Limete 1iere Rue"
-                                    },
-                                    "profile": {
-                                        "type": "file"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                }
-            }
-        },
-        "/identite": {
-            "post": {
-                "tags": [
-                    "AUTHENTIFICATION"
-                ],
-                "summary": "Chargement de la piéce d'identité de l'utilisateur",
-                "description": "",
-                "operationId": "c67945b64410b2980d9d6b9c6cf9e969",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "multipart/form-data": {
-                            "schema": {
-                                "properties": {
-                                    "id": {
-                                        "type": "integer",
-                                        "example": 18
-                                    },
-                                    "identite": {
-                                        "type": "file"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                }
-            }
-        },
         "/admin/doctors/list": {
             "get": {
                 "tags": [
@@ -1226,6 +1021,277 @@
                 }
             }
         },
+        "/admin/patients/list": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__PATIENT"
+                ],
+                "summary": "Liste des patients",
+                "operationId": "654e184fca2ce26c0ab16f05b9adc805",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/pays/list": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__PAYS"
+                ],
+                "summary": "Liste des pays",
+                "operationId": "dc78d06877d7da0104299b02b46a0ed3",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/patients/store": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__PATIENT"
+                ],
+                "summary": "Enregistre un patient",
+                "description": "",
+                "operationId": "6472aee5c73a3839c351a2fccdd1f84c",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "pays_natal": {
+                                        "type": "integer",
+                                        "example": 50
+                                    },
+                                    "pays_residence": {
+                                        "type": "integer",
+                                        "example": 50
+                                    },
+                                    "docteur": {
+                                        "type": "integer",
+                                        "example": 3
+                                    },
+                                    "category": {
+                                        "type": "integer",
+                                        "example": 2
+                                    },
+                                    "society": {
+                                        "type": "integer",
+                                        "example": 2
+                                    },
+                                    "num_dossier": {
+                                        "type": "string",
+                                        "example": "23650000"
+                                    },
+                                    "nom": {
+                                        "type": "string",
+                                        "example": "Kabamba"
+                                    },
+                                    "prenom": {
+                                        "type": "string",
+                                        "example": "Enock"
+                                    },
+                                    "date_naiss": {
+                                        "type": "date",
+                                        "example": "2022-02-08"
+                                    },
+                                    "lieu_naiss": {
+                                        "type": "string",
+                                        "example": "Mbuji-mayi"
+                                    },
+                                    "num_carte": {
+                                        "type": "string",
+                                        "example": "430256AKJNDJKDK"
+                                    },
+                                    "langue": {
+                                        "type": "string",
+                                        "example": "Français"
+                                    },
+                                    "sexe": {
+                                        "type": "string",
+                                        "example": "M"
+                                    },
+                                    "etat_civil": {
+                                        "type": "string",
+                                        "example": "Célibataire"
+                                    },
+                                    "adresse": {
+                                        "type": "string",
+                                        "example": "N°5 Av/Bukasa Q/Socopao C/Limete"
+                                    },
+                                    "boite_postal": {
+                                        "type": "string",
+                                        "example": "3400"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "enockmulamba1802@gmail.com"
+                                    },
+                                    "telephone_fixe": {
+                                        "type": "string",
+                                        "example": "+2438522000"
+                                    },
+                                    "telephone_mobile": {
+                                        "type": "string",
+                                        "example": "+243852277379"
+                                    },
+                                    "profession": {
+                                        "type": "string",
+                                        "example": "Developpeur"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/patients/update": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__PATIENT"
+                ],
+                "summary": "Modifie les informations d'un patient",
+                "description": "",
+                "operationId": "236bfa2b72e89505a746f559a8c74f4f",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "pays_natal": {
+                                        "type": "integer",
+                                        "example": 50
+                                    },
+                                    "pays_residence": {
+                                        "type": "integer",
+                                        "example": 50
+                                    },
+                                    "docteur": {
+                                        "type": "integer",
+                                        "example": 3
+                                    },
+                                    "category": {
+                                        "type": "integer",
+                                        "example": 2
+                                    },
+                                    "society": {
+                                        "type": "integer",
+                                        "example": 2
+                                    },
+                                    "num_dossier": {
+                                        "type": "string",
+                                        "example": "23650000"
+                                    },
+                                    "nom": {
+                                        "type": "string",
+                                        "example": "Kabamba"
+                                    },
+                                    "prenom": {
+                                        "type": "string",
+                                        "example": "Enock"
+                                    },
+                                    "date_naiss": {
+                                        "type": "date",
+                                        "example": "2022-02-08"
+                                    },
+                                    "lieu_naiss": {
+                                        "type": "string",
+                                        "example": "Mbuji-mayi"
+                                    },
+                                    "num_carte": {
+                                        "type": "string",
+                                        "example": "430256AKJNDJKDK"
+                                    },
+                                    "langue": {
+                                        "type": "string",
+                                        "example": "Français"
+                                    },
+                                    "sexe": {
+                                        "type": "string",
+                                        "example": "M"
+                                    },
+                                    "etat_civil": {
+                                        "type": "string",
+                                        "example": "Célibataire"
+                                    },
+                                    "adresse": {
+                                        "type": "string",
+                                        "example": "N°5 Av/Bukasa Q/Socopao C/Limete"
+                                    },
+                                    "boite_postal": {
+                                        "type": "string",
+                                        "example": "3400"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "enockmulamba1802@gmail.com"
+                                    },
+                                    "telephone_fixe": {
+                                        "type": "string",
+                                        "example": "+2438522000"
+                                    },
+                                    "telephone_mobile": {
+                                        "type": "string",
+                                        "example": "+243852277379"
+                                    },
+                                    "profession": {
+                                        "type": "string",
+                                        "example": "Developpeur"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/patients/show/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__PATIENT"
+                ],
+                "summary": "Renvoie les informations d'un patient par son ID",
+                "operationId": "06d8a93be70e9e3814ed95597ae313c0",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
         "/admin/patients/search": {
             "post": {
                 "tags": [
@@ -1243,6 +1309,36 @@
                                     "search": {
                                         "type": "string",
                                         "example": "Lucas"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/patients/delete": {
+            "post": {
+                "tags": [
+                    "ADMINISTRATION__PATIENT"
+                ],
+                "summary": "Supprimer un patient",
+                "operationId": "5778cb1137022afceef06a6700da2b88",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 10
                                     }
                                 },
                                 "type": "object"
@@ -2012,6 +2108,31 @@
                 ],
                 "summary": "Liste des sociétés",
                 "operationId": "725dc89b916e6e233b3e5ec27ee1c642",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admin/societies/categorie/{id}": {
+            "get": {
+                "tags": [
+                    "ADMINISTRATION__PATIENT"
+                ],
+                "summary": "Renvoie les informations des societés d'une catégorie précise",
+                "operationId": "123e7c0ff205a550c6140845c2372585",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 18
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK"
